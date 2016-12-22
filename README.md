@@ -11,7 +11,7 @@ Instala las dependeicas para comenzar el desarrollo:
 
 En la carpeta del proyecto, instala las dependencias:
 ```sh
-$ npm install
+$ npm install && npm install emailjs-imap-client
 ```
 
 Corre la aplicacion:
