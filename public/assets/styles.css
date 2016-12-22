@@ -100,7 +100,9 @@ footer.software {
 }
 .mailcontent {
     display: inline-block;
-    width: 50%;
+    vertical-align: top;
+    width: 49%;
+    border: 1px solid #000;
     max-width: 523px;
     min-width: 318px;
     height: 100%;

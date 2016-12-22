@@ -13,8 +13,8 @@ var ImapClient = require('emailjs-imap-client')
 
 client = new ImapClient('186.64.123.18', 143, {
     auth: {
-        user: 'contacto@deperfil.cl',
-        pass: 'contacto6211'
+        user: '',
+        pass: ''
     },
     ignoreTLS: true
 });
@@ -24,13 +24,31 @@ client.connect().then(() => {
 
 		var mailbox = client.selectMailbox('INBOX');
 
-		client.listMessages('INBOX', '1:10', ['uid', 'flags', 'envelope', 'bodystructure', 'body[]']).then((messages) => {
+		client.listMessages('INBOX', '1:10', ['uid', 'flags', 'envelope', 'bodystructure', 'body']).then((messages) => {
             messages.forEach((message) => { 
-  
+
+                console.log("Body:" + message.body );
+
             	console.log('Flags for ' + message.uid + ' | De:  ' + message.envelope.from[0].name + ' (' + message.envelope.from[0].address + ') Asunto:' + message.envelope.subject);
-            	console.log('Cuerpo: ' + message.body);
-            	$("#mailist").append('<a href="#" class="email-item" data-mailid="' + message.uid + '">#' + message.uid + '</a> <br> De:  ' + message.envelope.from[0].name + ' (' +  message.envelope.from[0].address + ') <br> Asunto:' + message.envelope.subject + '<hr width=100%>');
-        	});
+            	$("#mailist").append('<a href="#" class="email-item" data-mailid="' + message.uid + '">#' + message.uid + '</a> De:  ' + message.envelope.from[0].name + ' (' +  message.envelope.from[0].address + ') <br> Asunto:' + message.envelope.subject + '<hr width=100%>');
+
+                console.log(message.bodystructure.part + "\n" 
+                            + message.bodystructure.type + "\n" 
+                            + message.bodystructure.parameters + "\n" 
+                            + message.bodystructure.disposition + "\n" 
+                            + message.bodystructure.dispositionParameters + "\n" 
+                            + message.bodystructure.language + "\n" 
+                            + message.bodystructure.location + "\n" 
+                            + message.bodystructure.id + "\n" 
+                            + message.bodystructure.description + "\n" 
+                            + message.bodystructure.encoding + "\n" 
+                            + message.bodystructure.size + "\n" 
+                            + message.bodystructure.lineCount + "\n" 
+                            + message.bodystructure.envelope + "\n" 
+                            + message.bodystructure.md5 + "\n" 
+                            + message.bodystructure.childNodes + "\n");
+        	   });
+                
         });
 
 
