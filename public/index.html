@@ -1,22 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>MailBurn</title>
     <link rel='stylesheet' href='./assets/styles.css' type='text/css' media='all' />
-  </head>
-  <body>
-    <h1>Mail Burn</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    <footer class="software">
-    Estamos usando Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    y Electron <script>document.write(process.versions.electron)</script>. <a href="index.html">Recargar</a>
-    </footer>
-  </body>
+    <link rel='stylesheet' href='./assets/css/font-awesome.min.css' type='text/css' media='all' />
+    <!-- Insert this line above script imports  -->
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <!-- normal script imports etc  -->
+    <script src="./assets/js/jquery-3.1.1.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
+    <!-- Insert this line after script imports -->
+    <script>
+        if (window.module) module = window.module;
+    </script>
+</head>
 
-  <script>
+<body>
+
+    <div class="wrapper">
+
+        <input type="checkbox" id="navigation" />
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Bandeja de Entrada</a>
+                </li>
+            </ul>
+            <label for="navigation"><i class="fa fa-bars" aria-hidden="true"></i></label>
+        </nav>
+
+        <section class="main">
+            <article>
+                <section class="maillist" id="mailist">
+                  
+                </section>
+                <main class="mailcontent">
+                Email content
+                </main>
+                <footer class="software">
+                    Estamos usando Node.js
+                    <script>
+                        document.write(process.versions.node)
+                    </script>, Chromium
+                    <script>
+                        document.write(process.versions.chrome)
+                    </script>, y Electron
+                    <script>
+                        document.write(process.versions.electron)
+                    </script>. <a href="index.html">Recargar</a>
+                </footer>
+
+            </article>
+        </section>
+    </div>
+    </div>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+
+</body>
+
+<script>
     // You can also require other files to run in this process
     require('./renderer.js')
-  </script>
+</script>
+
 </html>
+

@@ -1,0 +1,108 @@
+body,html {
+    overflow:hidden;
+}
+
+section.main{
+    padding:0px 0px 0px 47px;
+    -moz-transition:all 140ms ease-in;
+    -webkit-transition:all 140ms ease-in;
+    -o-transition:all 140ms ease-in;
+    transition:all 140ms ease-in;
+
+}
+nav{
+    position:fixed;
+    top:0;
+    left:55px;
+    width:250px;
+    height:100%;
+    margin:0 0 0 -250px;
+    -moz-transition:all 145ms ease-in;
+    -webkit-transition:all 145ms ease-in;
+    -o-transition:all 145ms ease-in;
+    transition:all 145ms ease-in;
+    background:#222;
+}
+nav ul{
+    width:250px;
+    padding:0;
+    margin:0;
+    list-style:none;
+    background:#222;
+    overflow:hidden;
+}
+nav li{
+    margin:0;
+}
+nav a{
+    color:#fff;
+    font-size:1em;
+    font-family:'helvetica neue', helvetica, arial, sans-serif;
+    text-decoration:none;
+    display:block;
+    padding:12px 15px;
+    font-weight:300;
+    letter-spacing:2px;
+    border-bottom:1px solid #333;
+}
+nav a:hover{
+    background:#111;
+}
+label{
+    display: block;
+    color: #fff;
+    font-size: 28px;
+    float: right;
+    -moz-transition: all 100ms ease-in;
+    -webkit-transition: all 100ms ease-in;
+    -o-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    z-index: 500;
+    bottom: 9px;
+    position: absolute;
+    right: 17px;
+    cursor: hand;
+    cursor: pointer;
+}
+input[type="checkbox"]{
+    display:none;
+}
+input[type="checkbox"]:checked ~ nav{
+    margin:0;
+    left:0px;
+}
+input[type="checkbox"]:checked ~ label{
+    left:17px !important;
+    right:inherit !important;
+    color: #0c0;
+}
+input[type="checkbox"]:checked ~ section.main{
+    -webkit-transform:translate3d(242px, 0, 0);
+    -moz-transform:translate3d(242px, 0, 0);
+    -o-transform:translate3d(242px, 0, 0);
+    transform:translate3d(242px, 0, 0);
+    padding:0px 0px 0px 0px;
+}
+
+footer.software {
+    position:relative;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    background:#6cf;
+}
+
+.maillist {
+    display: inline-block;
+    width: 50%;
+    max-width: 523px;
+    min-width: 318px;
+}
+.mailcontent {
+    display: inline-block;
+    width: 50%;
+    max-width: 523px;
+    min-width: 318px;
+    height: 100%;
+    min-height: 100%;
+}
