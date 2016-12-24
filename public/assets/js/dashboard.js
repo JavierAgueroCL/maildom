@@ -13,8 +13,8 @@ var ImapClient = require('emailjs-imap-client')
 
 client = new ImapClient('186.64.123.18', 143, {
     auth: {
-        user: '',
-        pass: ''
+        user: 'javier@stack.cl',
+        pass: 'Night4146'
     },
     ignoreTLS: true
 });
@@ -24,14 +24,16 @@ client.connect().then(() => {
 
 		var mailbox = client.selectMailbox('INBOX');
 
+        
+
 		client.listMessages('INBOX', '1:10', ['uid', 'flags', 'envelope', 'bodystructure', 'body']).then((messages) => {
             messages.forEach((message) => { 
 
-                console.log("Body:" + message.body );
+                console.log("Cuerpo:" + message.body.peek );
 
             	console.log('Flags for ' + message.uid + ' | De:  ' + message.envelope.from[0].name + ' (' + message.envelope.from[0].address + ') Asunto:' + message.envelope.subject);
-            	$("#mailist").append('<a href="#" class="email-item" data-mailid="' + message.uid + '">#' + message.uid + '</a> De:  ' + message.envelope.from[0].name + ' (' +  message.envelope.from[0].address + ') <br> Asunto:' + message.envelope.subject + '<hr width=100%>');
-
+            	$("#mailist").append('<a href="#" class="email-item" data-mailid="' + message.uid + '"><span class="subject">' + message.envelope.subject  + '</span><span class="from">' + message.envelope.from[0].name + '</span></a>');
+/*
                 console.log(message.bodystructure.part + "\n" 
                             + message.bodystructure.type + "\n" 
                             + message.bodystructure.parameters + "\n" 
@@ -46,11 +48,10 @@ client.connect().then(() => {
                             + message.bodystructure.lineCount + "\n" 
                             + message.bodystructure.envelope + "\n" 
                             + message.bodystructure.md5 + "\n" 
-                            + message.bodystructure.childNodes + "\n");
+                            + message.bodystructure.childNodes + "\n");*/
         	   });
-                
-        });
 
+        });
 
 
 		//client.logout();
